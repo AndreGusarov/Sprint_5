@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions 
 from tests.locators import *
+from data.urls import *
 
 @pytest.fixture
 def driver():
@@ -12,7 +13,7 @@ def driver():
 
 @pytest.fixture
 def login(driver):
-    driver.get("https://stellarburgers.nomoreparties.site/login")
+    driver.get(URL_LOGIN)
     driver.find_element(*EMAIL_INPUT).send_keys('test1234@ya.ru')
     driver.find_element(*PASSWORD_INPUT).send_keys('Test1234')
     driver.find_element(*ENTER_BUTTON).click()
